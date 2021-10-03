@@ -13,7 +13,7 @@
 	Step 2
 	<p>Create Database</p>
 	Step 3
-	<p>Copy .env.example from root to root aand update DB details</p>
+	<p>Copy .env.example from root to root and update DB details.</p>
 	Step 4
 	<p>Run migration by 'php artisan migrate'</p>
 	Step 5
