@@ -1,0 +1,79 @@
+body{
+	background: rgb(99, 39, 120);
+}
+
+.frm_err{
+    border: 2px solid red;
+}
+
+.err_container{
+    color: red;
+    font-size: 16px;
+}
+.c_main_title{
+	font-size: 16px;
+}
+
+.child_div_address{
+    padding: 10px;
+    border: 1px solid gray;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+.add_new_address{
+    float: right;
+}
+
+.pro_img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.username {
+    text-align: right !important;
+    color: white;
+    font-size: 16px;
+    background: green;
+    float: right;
+    padding: 2px;
+    border-radius: 6px;
+}
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+.btn-primary , .btn-primary:hover{
+        background: rgb(99, 39, 120);
+        color: white;
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
