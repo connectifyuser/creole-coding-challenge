@@ -9,7 +9,7 @@
 	<p>Installation</p>
 	Step 1
 	<p>Clone the repository by run command</p>
-	<h3>git clon https://github.com/connectifyuser/creole-coding-challenge.git</h3>
+	<h3>git clone https://github.com/connectifyuser/creole-coding-challenge.git</h3>
 	Step 2
 	<p>Create Database</p>
 	Step 3
