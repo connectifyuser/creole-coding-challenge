@@ -24,6 +24,11 @@ class User extends Authenticatable
         'gender'
     ];
 
+
+    public function comments()
+    {
+        return $this->hasMany(Address::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

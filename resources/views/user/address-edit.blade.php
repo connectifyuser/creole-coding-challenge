@@ -57,6 +57,9 @@
                   <div class="form-group row">
                      <label class="col-md-4">State *
                      </label>
+                     <input type="hidden" class="state_is_" value="{{$userAddressData->state}}">
+                           
+
                      <div class="col-md-8">
                         <select class="custom-select state">
                            @foreach(Helper::states() as $state)

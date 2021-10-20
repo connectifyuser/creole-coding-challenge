@@ -81,7 +81,6 @@
                </div>
             </div>
          </div>
-            <a href="javascript:void(0)" class="btn btn-secondary update_addresses mt-5 mb-2">Update</a>
         </div>
       </div>
    </div>

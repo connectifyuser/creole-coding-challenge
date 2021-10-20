@@ -23,4 +23,8 @@ class UserAddress extends Model
         'city',
         'user_id'
     ];
+
+     public function users(){
+        return $this->belongsTo(User::class);
+    }
 }

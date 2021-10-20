@@ -25,7 +25,7 @@ class UserController extends Controller
     }
 
     /**
-     * Return User profile View 
+     * Return User change password View 
      * @param Illuminate\Http\Request.
      * @return View.
      * 
@@ -60,29 +60,29 @@ class UserController extends Controller
     }
 
    public function updateProfilePicture(Request $request){
-    $userId  = Auth::user()->id;
-    $imageName = '';
-    $pathToFile = '';
+        $userId  = Auth::user()->id;
+        $imageName = '';
+        $pathToFile = '';
 
-    if ($request->hasFile('profile_picture')) {
-        $attachment = $request->file('profile_picture');
-        $imageName = $attachment->getClientOriginalName();
-        $attachment->move(public_path('uploads/userprofiles'), $imageName);
-        $pathToFile = public_path('uploads/userprofiles'.'/'.$imageName);
-        $updateModalObj = User::find($userId);
-        $updateModalObj->profile = $imageName;
+        if ($request->hasFile('profile_picture')) {
+            $attachment = $request->file('profile_picture');
+            $imageName = $attachment->getClientOriginalName();
+            $attachment->move(public_path('uploads/userprofiles'), $imageName);
+            $pathToFile = public_path('uploads/userprofiles'.'/'.$imageName);
+            $updateModalObj = User::find($userId);
+            $updateModalObj->profile = $imageName;
 
-        if ($updateModalObj->save()) {
-            return back()->with('success', 'Updated');
-        } else {
-            return back()->with('error', 'Opps something was wrong!');
+            if ($updateModalObj->save()) {
+                return back()->with('success', 'Updated');
+            } else {
+                return back()->with('error', 'Opps something was wrong!');
+            }
         }
-    }
-    return Redirect::back();
+        return Redirect::back();
    }
 
     /**
-     * Updating user Password.
+     * Change User Password View.
      * @param Illuminate\Http\Request.
      * @return Illuminate\Http\Response.
      **/
@@ -128,18 +128,18 @@ class UserController extends Controller
     }
 
      /**
-     * Return User profile View 
+     * Return add User Address View
      * @param Illuminate\Http\Request.
      * @return View.
      * 
      **/
     public function addUserAddressView()
     {
-       return view('user.add-address');
+        return view('user.add-address');
     }
 
      /**
-     * Return User profile View 
+     * Return addUserAddress View 
      * @param Illuminate\Http\Request.
      * @return View.
      * 
@@ -152,29 +152,20 @@ class UserController extends Controller
             $address['user_id'] = $userId;
             UserAddress::create($address);
         }
-       /* $storeAddresses = new UserAddress();
-        $storeAddresses->title = $userAddresses->title;
-        $storeAddresses->addressline1 = $userAddresses->addressline1;
-        $storeAddresses->addressline2 = $userAddresses->addressline2;
-        $storeAddresses->country = $userAddresses->country;
-        $storeAddresses->state = $userAddresses->state;
-        $storeAddresses->city = $userAddresses->city;
-        $storeAddresses->pincode = $userAddresses->pincode;
-        $storeAddresses->save();*/                  
-        return response()->json([
+          return response()->json([
             "status" => 1,
             "message" => 'Address Added',
         ]);
     }
 
     /**
-     * Return User Address 
+     * Return User Addresses
      * @param Illuminate\Http\Request.
      * @return View.
      * 
      **/
     public function addresses()
-    {  
+    { 
        $userAddressData = UserAddress::where('user_id', Auth::user()->id)->get()->toArray();
        return view('user.addresses')->with('userAddressData', $userAddressData);
     }
@@ -186,12 +177,11 @@ class UserController extends Controller
      * 
      **/
     public function editAddressView(Request $request, $id)
-    {  
+    { 
         $addId = $request->id;
         $userAddressData = UserAddress::where('id', $addId)->get()->first();
        return view('user.address-edit')->with('userAddressData', $userAddressData);
     }
-
 
      /**
      * Return User profile View 
@@ -226,15 +216,15 @@ class UserController extends Controller
         $storeAddresses = UserAddress::find($id)->delete();
         return back()->with('success', 'Address Deleted Successfully');
     }
-
-      /**
+    
+    /**
      * Return User Address edit view 
      * @param Illuminate\Http\Request.
      * @return View.
      * 
      **/
     public function viewUserAddress(Request $request, $id)
-    {  
+    {
         $addId = $request->id;
         $userAddressData = UserAddress::where('id', $addId)->get()->first();
        return view('user.view-address')->with('userAddressData', $userAddressData);
@@ -248,7 +238,7 @@ class UserController extends Controller
      * 
      **/
     public function fetchStatesForCountry(Request $request)
-    {  
+    {
        $statesF = helper::statesFilteredArr($request->country);
 
        return response()->json([
@@ -257,8 +247,5 @@ class UserController extends Controller
             "states" => $statesF
         ]); 
     }
-
-    
-
 
 }

@@ -57,7 +57,7 @@
                                 </li>
                             @endif
                         @else
-                        <div class="dropdown">
+                     <!--    <div class="dropdown">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    Address
                   </button>
@@ -65,7 +65,7 @@
                     <a class="dropdown-item" href="{{route('user.addaddressview')}}">Add New</a>
                     <a class="dropdown-item" href="{{route('user.address')}}">Addresses</a>
                   </div>
-                </div>
+                </div> -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -89,9 +89,15 @@
                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                      </form>
-                                <!--      <a class="dropdown-item" href="{{ route('user.changepassword') }}">
-                                        {{ __('Address book') }}
-                                    </a> -->
+            <a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link ml-3 dropdown-toggle">
+            {{ __('Address') }}
+            </a>
+            <ul aria-labelledby="dropdownMenu3" class="dropdown-menu border-0 shadow">
+            <li><a href="{{route('user.addaddressview')}}" class="dropdown-item">Add new</a></li>
+            <li><a href="{{route('user.address')}}" class="dropdown-item">Addresses</a></li>
+            </ul>
+            </li>
+            </ul>
                                 </div>
                             </li>
                         @endguest

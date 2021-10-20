@@ -1,6 +1,8 @@
-body{
-	background: rgb(99, 39, 120);
+
+body {
+   
 }
+
 
 .frm_err{
     border: 2px solid red;
@@ -51,12 +53,17 @@ body{
     border: none
 }
 .btn-primary , .btn-primary:hover{
-        background: rgb(99, 39, 120);
+        background: #f2b800 !important;
         color: white;
 }
 
+.btn-secondary{
+    background: #f2b800 !important;
+    color: white;
+}
+
 .profile-button:hover {
-    background: #682773
+    background: #f2b800;
 }
 
 .profile-button:focus {
